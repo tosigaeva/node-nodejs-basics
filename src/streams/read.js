@@ -9,9 +9,7 @@ const read = async () => {
   const sourcePath = path.join(__dirname, 'files', 'fileToRead.txt');
   const stream = fs.createReadStream(sourcePath, {encoding: 'utf-8'});
 
-  stream.on('data', (chunk) => {
-    process.stdout.write(chunk);
-  })
+  stream.pipe(process.stdout);
 
   stream.on('error', (err) => {
     console.error(err.message);
