@@ -12,12 +12,8 @@ const create = async () => {
         encoding: 'utf8',
         flag: 'wx'
       });
-      console.log('fresh.txt was created successfully');
     } catch (error) {
-      if (error.code === 'EEXIST') {
-        throw new Error('FS operation failed');
-      }
-      throw error;
+      throw new Error('FS operation failed');
     }
 };
 
